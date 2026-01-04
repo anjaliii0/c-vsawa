@@ -24,7 +24,8 @@ ChartJS.register(
   PointElement
 );
 
-const Dashboard = () => {
+const Dashboard = ({ setCurrentPage }) => {
+
     
 
   /* ===================== CHART DATA ===================== */
@@ -88,16 +89,20 @@ const Dashboard = () => {
       <div className="right-top-card">
         <h2 style={{ color: "#00f2fe" }}>Vulnerability Scanner</h2>
                 <div className="options">
-          <div className="option-card"
-          >
-            <i className="fas fa-plus-circle"></i><br />
-            New Security Scan
+          <div
+              className="option-card"
+              onClick={() => setCurrentPage('scan')}>
+              <i className="fas fa-plus-circle"></i><br />
+              New Security Scan
           </div>
 
-          <div className="option-card">
-            <i className="fas fa-file-alt"></i><br />
-            View Report
-          </div>
+          <div
+              className="option-card"
+              onClick={() => setCurrentPage('reports')}>
+              <i className="fas fa-file-alt"></i><br />
+              View Report
+              </div>
+
         </div>
       </div>
 

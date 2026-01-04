@@ -8,24 +8,31 @@ import Dashboard from './components/Dashboard.jsx';
 import ScanPage from './components/ScanPage.jsx';
 import ReportsPage from './components/ReportsPage.jsx';
 import LoginPage from './components/LoginPage.jsx';
+import NotFoundPage from './components/NotFoundPage.jsx';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
 
   const renderPage = () => {
-    switch (currentPage) {
-      case 'dashboard':
-        return <Dashboard />;
-      case 'scan':
-        return <ScanPage />;
-      case 'reports':
-        return <ReportsPage />;
-      case 'login':
-        return <LoginPage />;
-      default:
-        return <Dashboard />;
+  switch (currentPage) {
+    case 'dashboard':
+      return <Dashboard setCurrentPage={setCurrentPage} />;
+    case 'scan':
+      return <ScanPage />;
+    case 'reports':
+      return <ReportsPage />;
+    case 'login':
+      return <LoginPage />;
+      
+    case 'settings':
+    case 'database':
+      return <NotFoundPage />;
+
+    default:
+    return <NotFoundPage />;
     }
-  };
+};
+
 
   return (
     <>
